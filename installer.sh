@@ -118,7 +118,7 @@ dircreate
         read adm_ids
         echo "Admin_ID=$adm_ids" >> /root/ResBotAuth
         }
-        echo -ne "Username admin panel use '@' [Ex: @givpn] : "
+        echo -ne "Username admin panel use '@' [Ex: @wingshope] : "
         read admin_pnl
         [[ -z $admin_pnl ]] && admin_pnl="@givpn"
         echo ""
@@ -126,9 +126,9 @@ dircreate
         read limit_pnl
         [[ -z $limit_pnl ]] && limit_pnl="1"
         echo ""
-        echo -ne "Your name store [dafult: givpn-STORE] : "
+        echo -ne "Your name store [dafult: wings-STORE] : "
         read store_pnl
-        [[ -z $store_pnl ]] && store_pnl="givpn-STORE"
+        [[ -z $store_pnl ]] && store_pnl="wings-STORE"
         echo ""
 cat <<-EOF >/etc/.maAsiss/bot.conf
 admin_panel : $admin_pnl
@@ -139,7 +139,7 @@ EOF
         echo -e "Info...\n"
         fun_bot1() {
             [[ ! -e "/etc/.maAsiss/.Shellbtsss" ]] && {
-				wget -qO- https://raw.githubusercontent.com/givpn/bot_panel/master/ShellBot.sh >/etc/.maAsiss/.Shellbtsss
+				wget -qO- https://raw.githubusercontent.com/wingshope/bot/master/ShellBot.sh >/etc/.maAsiss/.Shellbtsss
 			}
 			[[ "$(grep -wc "givpn_bot" "/etc/rc.local")" = '0' ]] && {
 			    sed -i '$ i\screen -dmS givpn_bot bbt' /etc/rc.local >/dev/null 2>&1
@@ -154,15 +154,15 @@ EOF
        clear
         echo -e "Info...\n"
         fun_bot2() {
-            screen -r -S "givpn_bot" -X quit >/dev/null 2>&1
-            [[ $(grep -wc "givpn_bot" /etc/rc.local) != '0' ]] && {
-                sed -i '/givpn_bot/d' /etc/rc.local
+            screen -r -S "wings_bot" -X quit >/dev/null 2>&1
+            [[ $(grep -wc "wings_bot" /etc/rc.local) != '0' ]] && {
+                sed -i '/wings_bot/d' /etc/rc.local
             }
             rm -f /etc/.maAsiss/bot.conf
             sleep 1
         }
         fun_bot2
-        echo -e "\nBot givpn Stopped!"
+        echo -e "\nBot wings Stopped!"
         sleep 2
         menu
     }
