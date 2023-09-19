@@ -108,7 +108,7 @@ EOF
 fun_botOnOff() {
 dircreate
         [[ ! -f /etc/.maAsiss/bot.conf ]] && {
-        echo -e "givpn Bot Panel Installer
+        echo -e "wings Bot Panel Installer
         "
         [[ ! -f /root/ResBotAuth ]] && {
         echo -ne "Input your Bot TOKEN : "
@@ -120,7 +120,7 @@ dircreate
         }
         echo -ne "Username admin panel use '@' [Ex: @wingshope] : "
         read admin_pnl
-        [[ -z $admin_pnl ]] && admin_pnl="@givpn"
+        [[ -z $admin_pnl ]] && admin_pnl="@wingshope"
         echo ""
         echo -ne "Limit trial for reseller create user trial [default:1] : "
         read limit_pnl
@@ -141,13 +141,13 @@ EOF
             [[ ! -e "/etc/.maAsiss/.Shellbtsss" ]] && {
 				wget -qO- https://raw.githubusercontent.com/wingshope/bot/master/ShellBot.sh >/etc/.maAsiss/.Shellbtsss
 			}
-			[[ "$(grep -wc "givpn_bot" "/etc/rc.local")" = '0' ]] && {
-			    sed -i '$ i\screen -dmS givpn_bot bbt' /etc/rc.local >/dev/null 2>&1
+			[[ "$(grep -wc "wings_bot" "/etc/rc.local")" = '0' ]] && {
+			    sed -i '$ i\screen -dmS wings_bot bbt' /etc/rc.local >/dev/null 2>&1
 			}
         }
-        screen -dmS givpn_bot bbt >/dev/null 2>&1
+        screen -dmS wings_bot bbt >/dev/null 2>&1
         fun_bot1
-        [[ $(ps x | grep "givpn_bot" | grep -v grep | wc -l) != '0' ]] && echo -e "\nBot successfully activated !" || echo -e "\nError1! Information not valid !"
+        [[ $(ps x | grep "wings_bot" | grep -v grep | wc -l) != '0' ]] && echo -e "\nBot successfully activated !" || echo -e "\nError1! Information not valid !"
         sleep 2
         menu
         } || {
